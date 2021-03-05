@@ -1,0 +1,26 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.Train;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.NoHandlerFoundException;
+
+@ControllerAdvice
+public class GlobalExceptionHandlingController {
+	
+	@ExceptionHandler(NoHandlerFoundException.class)
+    public 
+    handleNoHandlerFoundException(HttpServletResponse httpResponse, Exception ex) throws Exception {
+//        LOGGER.error("No Handler found for request url.",ex);
+//        ErrorJSON errorJSON = new ErrorJSON();
+//        errorJSON.addError(Constants.URL_INVALID.name(),null,
+//                "Invalid rest endpoint.",
+//                "Invalid rest endpoint.", null);
+        httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+       // httpResponse.setContentType("application/json");
+        return  errorJSON;
+    }
+}   
+
+}

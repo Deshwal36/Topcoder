@@ -1,0 +1,24 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.Train;
+
+import java.util.HashMap;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.NoHandlerFoundException;
+
+@ControllerAdvice
+public class GlobalExceptionHandlingController {
+	
+	@ExceptionHandler(NoHandlerFoundException.class)
+	@ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+	 public HashMap<String, String> handleNoHandlerFoundException(NoHandlerFoundException ex) {
+		HashMap<String, String> response = new HashMap<>();
+        response.put("status", "shivam");
+        response.put("message", "deshwal");
+        return response;
+
+}   
+
+}

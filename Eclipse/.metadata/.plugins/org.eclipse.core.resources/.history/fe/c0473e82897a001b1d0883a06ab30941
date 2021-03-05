@@ -1,0 +1,5 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.Train;
+
+public class NotFoundResourceExceptionResolver {
+
+}

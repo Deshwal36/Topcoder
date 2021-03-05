@@ -1,0 +1,40 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.Train;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+//@CrossOrigin(origins = "http://localhost:8080")
+@RestController
+public class TrainController {
+	
+	
+	@Autowired
+	private TrainRepository trainrepository;
+	
+	@GetMapping("/api/trains")
+	public ResponseEntity<ArrayList<TrainModel>> getAlltrains(){
+		
+		
+		try {
+			
+			ArrayList<TrainModel> trainmodel=(ArrayList<TrainModel>) trainrepository.findAll();
+			if (trainmodel.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+			
+			return new ResponseEntity<>(trainmodel, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+
+}

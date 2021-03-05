@@ -1,0 +1,6 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.Train;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface TrainRepository extends JpaRepository<TrainModel, Long>{
+	
+}

@@ -1,0 +1,5 @@
+package com.Topcoder.rest.webservices.Train;
+
+public class TrainModel {
+
+}

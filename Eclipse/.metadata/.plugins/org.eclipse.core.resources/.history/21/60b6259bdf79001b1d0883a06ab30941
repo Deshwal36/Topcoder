@@ -1,0 +1,24 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.Train;
+
+public class TrainModel {
+	
+	long id;
+	String name;
+	String description;
+	String distance_between_stop;
+	String max_speed;
+	Boolean sharing_tracks;
+	Boolean grade_crossing;
+	String train_frequency;
+	String amenities;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

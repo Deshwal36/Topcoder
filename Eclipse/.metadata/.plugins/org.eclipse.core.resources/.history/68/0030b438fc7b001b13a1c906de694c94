@@ -1,0 +1,29 @@
+package com.Topcoder.rest.webservices.springbootjpapostgresql.error;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.NoHandlerFoundException;
+
+
+@ControllerAdvice
+public class GlobalExceptionHandlingController{
+	
+//	@Override
+//	@ExceptionHandler(NoHandlerFoundException.class)
+//	protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex,HttpHeaders headers, HttpStatus status, WebRequest request) {
+//		HashMap<String,String> responseBody = new HashMap<>();
+//        responseBody.put("path",request.getContextPath());
+//        responseBody.put("message","Invalid EndPoint");
+//        return new ResponseEntity<Object>(responseBody,HttpStatus.METHOD_NOT_ALLOWED);
+//
+//	}  
+	
+	@ExceptionHandler(value = { NoHandlerFoundException.class })
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    public ApiErrorResponse noHandlerFoundException(Exception ex) {
+        return new ApiErrorResponse(405, 4041, ex.getMessage());
+    }
+
+}
